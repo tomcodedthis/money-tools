@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Overview from "../components/Investments/Overview";
-import Transactions from "../components/Investments/Transactions";
+import Overview from "./Overview";
+import Transactions from "./Transactions";
 
 export default function Investments({ trans }: any) {
   const [currentTab, setCurrentTab] = useState("transactions");
