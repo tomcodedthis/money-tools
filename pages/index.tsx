@@ -5,7 +5,8 @@ import { useState } from "react";
 import clientPromise from "../lib/mongodb";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Investments from "../components/Investments";
+import Investments from "./Investments";
+import Overview from "../components/Investments/Overview";
 
 export async function getStaticProps(context: any) {
   try {
@@ -16,7 +17,6 @@ export async function getStaticProps(context: any) {
       .collection("transactions")
       .find({ account_id: 443178 })
       .filter({})
-      .limit(1)
       .toArray();
 
     return {
@@ -37,7 +37,7 @@ export default function Home({
   trans,
   isConnected,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [currentPage, setCurrentPage] = useState("Investments");
+  const [currentPage, setCurrentPage] = useState("investments");
 
   return (
     <div className="h-[100vh] text-center text-black bg-green dark">
@@ -54,8 +54,12 @@ export default function Home({
 
       <Header currentPage={currentPage} />
 
-      <main className="h-[calc(100vh-130px)] flex flex-col p-6">
-        <Investments trans={trans} />
+      <main className="h-[calc(100vh-125px)] flex flex-col p-4">
+        {currentPage === "investments" ? (
+          <Investments trans={trans} />
+        ) : (
+          <Investments trans={trans} />
+        )}
       </main>
 
       <Footer isConnected={isConnected} />

@@ -25,7 +25,7 @@ export default function Header(props: any) {
   return (
     <div className="abosolute top-0">
       <div
-        className={`h-[70px] w-full z-10 bg-dark-green flex justify-between gap-6 font-semibold`}
+        className={`h-[75px] w-full z-10 bg-dark-green flex justify-between gap-6 font-semibold`}
       >
         <div className="h-full flex items-center gap-2 pl-6 text-xl">
           <div className="">MoneyWorks |</div>
