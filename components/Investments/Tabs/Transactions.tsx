@@ -24,38 +24,39 @@ function Transaction(props: any) {
 
   return (
     <div
-      className="grid grid-cols-5 gap-y-4 place-items-center rounded-lg bg-green p-4 font-bold uppercase cursor-pointer"
+      className="grid grid-cols-[50px_repeat(5,1fr)] gap-y-4 place-items-center rounded-lg bg-green p-4 font-bold uppercase cursor-pointer"
       onClick={() => {
         expanded ? setExpand(false) : setExpand(true);
       }}
     >
-      <div className="w-full flex items-center justify-around">
+      <div className="w-full flex pl-2">
         <i
           className={`fa-solid ${
             expanded ? "fa-caret-down" : "fa-caret-right"
-          } fa-2xl`}
+          } fa-2xl justify-self-start`}
         />
-        <div className="">
-          <TransID text={"Type:"} />
-          {props.type}
-        </div>
       </div>
 
-      <div>
+      <div className="w-full border-x-4 border-dark-green">
+        <TransID text={"Type:"} />
+        {props.type}
+      </div>
+
+      <div className="w-full border-r-4 border-dark-green">
         <TransID text={"Ticker:"} />
         {props.symbol}
       </div>
 
-      <div>
+      <div className="w-full border-r-4 border-dark-green">
         <TransID text={"Price:"} />${parseFloat(props.price).toFixed(2)}
       </div>
 
-      <div>
+      <div className="w-full border-r-4 border-dark-green">
         <TransID text={"Amount:"} />
         {props.amount}
       </div>
 
-      <div>
+      <div className="w-full">
         <TransID text={"Cost:"} />${parseFloat(props.total).toFixed(2)}
       </div>
 

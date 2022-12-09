@@ -1,6 +1,6 @@
 export default function Footer(props: any) {
   return (
-    <footer className="h-[50px] w-full absolute bottom-0 grid grid-cols-3 items-center bg-dark-green text-center text-sm">
+    <footer className="h-[50px] w-full absolute bottom-0 grid grid-cols-3 items-center bg-dark-green text-center text-sm text-black dark">
       <a
         className="underline underline-offset-4 opacity-80"
         href="https://github.com/tomcodedthis"
