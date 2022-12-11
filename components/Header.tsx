@@ -6,7 +6,7 @@ export default function Header(props: any) {
   const [profileExpanded, setProfileExpand] = useState(false);
 
   return (
-    <header className="abosolute top-0 text-center text-black bg-green dark">
+    <header className="top-0 w-full text-center text-black bg-green dark">
       <MainHeader
         pagesExpanded={pagesExpanded}
         profileExpanded={profileExpanded}
@@ -74,9 +74,9 @@ function MainHeader(props: any) {
 function SubPages(props: any) {
   return (
     <div className={`${props.expanded ? "grid" : "hidden"} grid-cols-3`}>
-      <Page href={"/investments"} text={"Investments"} />
-      <Page href={"/budget"} text={"Budget"} />
-      <Page href={"/tools"} text={"Tools"} />
+      <Page icon={"fa-chart-pie"} href={"/investments"} text={"Investments"} />
+      <Page icon={"fa-coins"} href={"/budget"} text={"Budget"} />
+      <Page icon={"fa-wrench"} href={"/tools"} text={"Tools"} />
     </div>
   );
 }
@@ -84,17 +84,18 @@ function SubPages(props: any) {
 function ProfilePages(props: any) {
   return (
     <div className={`${props.expanded ? "grid" : "hidden"} grid-cols-2`}>
-      <Page href={"/account"} text={"Account"} />
-      <Page href={"/settings"} text={"Settings"} />
+      <Page icon={"fa-user"} href={"/account"} text={"Account"} />
+      <Page icon={"fa-gear"} href={"/settings"} text={"Settings"} />
     </div>
   );
 }
 
-function Page({ href, text }: any) {
+function Page({ icon, href, text }: any) {
   return (
     <Link href={href}>
-      <button className="w-full p-[0.75rem] font-bold uppercase bg-dark-green hover:bg-green">
+      <button className="w-full flex items-center justify-center gap-2 p-[0.75rem] font-bold uppercase bg-dark-green hover:bg-green">
         {text}
+        <i className={`fa-solid ${icon}`} />
       </button>
     </Link>
   );
