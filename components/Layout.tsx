@@ -3,7 +3,7 @@ import Script from "next/script";
 import Footer from "./Footer";
 import Header from "./Header";
 
-export default function Layout({ children }: any) {
+export default function Layout({ children, isConnected }: any) {
   return (
     <>
       <Head>
@@ -23,7 +23,7 @@ export default function Layout({ children }: any) {
         {children}
       </main>
 
-      <Footer />
+      <Footer isConnected={isConnected} />
     </>
   );
 }
